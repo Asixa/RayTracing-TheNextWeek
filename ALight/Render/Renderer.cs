@@ -85,9 +85,21 @@ namespace ALight.Render
             list.Add(new PlaneXZ(0, 555, 0, 555, 0, new Lambertian(new ConstantTexture(Color32.white))));
             list.Add(new FilpNormals(new PlaneXY(0, 555, 0, 555, 555, new Lambertian(new ConstantTexture(Color32.white)))));
             
-            list.Add(new Sphere(new Vector3(278, 100, 278), 100f, new Dielectirc(5)));
-            list.Add(new PlaneXZ(0, 555, 0, 555, 0, new Lambertian(new CheckerTexture(new ConstantTexture(new Color32(0, 0, 0)), new ConstantTexture(Color32.white)))));
-            world.list.Add(new BVHNode(list.ToArray(),list.Count,0,1));
+           
+            world.list.Add(new BVHNode(list.ToArray(), list.Count, 0, 1));
+            world.list.Add(new Translate(new RotateY(
+                    new Cube(
+                        new Vector3(0, 0, 0),
+                        new Vector3(165, 330, 165),
+                        new Lambertian(new ConstantTexture(Color32.white))), 15)
+                , new Vector3(265, 0, 295)));
+            world.list.Add(new Translate(new RotateY(
+                    new Cube(
+                        new Vector3(0, 0, 0),
+                        new Vector3(165, 165, 165),
+                        new Lambertian(new ConstantTexture(Color32.white))), -18),
+                new Vector3(130, 0, 65)));
+
         }
 
         private class ScannerConfig
