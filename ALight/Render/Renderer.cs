@@ -55,9 +55,9 @@ namespace ALight.Render
             recip_height = 1f / height;
 
             //Demo场景
-            Demo(); 
+           //Demo(); 
             //康奈尔盒子
-           //CornellBox();
+           CornellBox();
         }
 
 
@@ -78,7 +78,7 @@ namespace ALight.Render
             SkyColor = false;
             camera = new Camera(new Vector3(278, 278, -800), new Vector3(278, 278, 0), new Vector3(0, 1, 0), 40, (float)width / (float)height);
             var list=new List<Hitable>();
-            list.Add(new PlaneYZ(0, 555, 0, 555, 555, new Lambertian(new ConstantTexture(Color32.green))));
+            list.Add(new FilpNormals(new PlaneYZ(0, 555, 0, 555, 555, new Lambertian(new ConstantTexture(Color32.green)))));
             list.Add(new PlaneYZ(0, 555, 0, 555, 0, new Lambertian(new ConstantTexture(Color32.red))));
             list.Add(new PlaneXZ(213, 343, 227, 332, 554,new DiffuseLight(new ConstantTexture(new Color32(1, 1, 1, 1)),15)));
             list.Add(new FilpNormals(new PlaneXZ(0, 555, 0, 555, 555, new Lambertian(new ConstantTexture(Color32.white)))));
