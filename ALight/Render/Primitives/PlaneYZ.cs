@@ -117,7 +117,7 @@ namespace ALight.Render.Primitives
             rec.u = (y - y0) / (y1 - y0);
             rec.t = t;
             rec.material = material;
-            rec.normal = new Vector3(0, 0, 1);
+            rec.normal = new Vector3(1, 0, 0);
             rec.p = ray.GetPoint(t);
             return true;
         }
